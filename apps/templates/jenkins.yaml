@@ -18,5 +18,18 @@ spec:
       parameters:
         - name: persistence.size
           value: 2Gi
+      values: |-
+          ingress:
+              enabled: true
+              annotations:
+                kubernetes.io/ingress.class: "nginx"
+                certmanager.k8s.io/cluster-issuer: "selfsigning-issuer"
+                certmanager.k8s.io/acme-challenge-type: http01
+              path: "/"
+              hostName: jenkins.local.kube.azeops.com
+              tls:
+              - secretName: jenkins.local.kube.azeops.com
+                hosts:
+                  - jenkins.local.kube.azeops.com
   # syncPolicy:
   #   automated: {}
