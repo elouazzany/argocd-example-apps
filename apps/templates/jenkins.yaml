@@ -13,8 +13,10 @@ spec:
   source:
     chart: jenkins
     repoURL: 'https://kubernetes-charts.storage.googleapis.com'
-    targetRevision: 1.27.0
+    targetRevision: 2.0.1
     helm:
       parameters:
         - name: persistence.size
           value: 2Gi
+  # syncPolicy:
+  #   automated: {}
