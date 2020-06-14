@@ -19,7 +19,8 @@ spec:
         - name: persistence.size
           value: 2Gi
       values: |-
-          ingress:
+          master:
+            ingress:
               enabled: true
               annotations:
                 kubernetes.io/ingress.class: "nginx"
