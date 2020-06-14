@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: jenkins
+  name: sonar
   namespace: cicd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
