@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: jenkins
+  namespace: cicd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: cicd
+    server: {{ .Values.spec.destination.server }}
+  project: default
+  source:
+    chart: jenkins
+    repoURL: 'https://kubernetes-charts.storage.googleapis.com'
+    targetRevision: 1.27.0
+    helm:
+      parameters:
+        - name: persistence.size
+          value: 2Gi
